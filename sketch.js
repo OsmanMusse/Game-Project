@@ -85,7 +85,7 @@ function draw() {
 
 	endShape();
 
-  triangle(30, 75, 58, 20, 86, 75);
+  triangle(30, 75, 58, 20, 86, 74);
 	fill(165,42,42, 42);
 	rect(780, 450, 105, 155);
 
