@@ -97,7 +97,6 @@ function draw() {
     
     // Mountain Shape Starts here
 
-    beginShape();
     fill(66,65,73);
     translate(100, -230);
     triangle(0, -120, 158, 185, -100, 185);
@@ -111,10 +110,10 @@ function draw() {
     translate(-180, 0);
     triangle(80, -100, 158, 175, -100, 175);
     
-    endShape();
+
     
 
-// Mountain Shape End Here
+// Mountain Shape Ends Here
     
     
     
@@ -131,25 +130,20 @@ function draw() {
     
     endShape();
 // Canon Shape Ends Here
+    
+
+// Collectable Item being modelled
+    translate(-130,300);
+    fill(255,230,99);
+    rect(30, 20, 55, 55, 20);
+    fill(50,0,0);
+    rect(40, 31, 35, 35, 15);
+
+   
+    
+// Collectable item Ends Here
 
 }
 
 
 
-
-
-
-
-
-// Tree Shape being modeled
-
-
-
-
-
-
-
-
-
-
-// Tree
