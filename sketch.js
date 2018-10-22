@@ -2,148 +2,228 @@
 
 The Game Project
 
-1 - Background Scenery
+2 - Game character
 
 Use p5 drawing functions such as rect, ellipse, line, triangle and
-point to draw the scenery as set out in the code comments. The items
-should appear next to the text titles.
+point to draw the different states of your game character.
 
-Each bit of scenery is worth two marks:
+Write the code so that your character appears inside the box for each
+state.
+
+IMPORTANT: For each box the variables gameChar_x & gameChar_y are set to the bottom
+center of the box. You must combine these variables with arithmetic to
+determine the position of each shape that you draw. This will later allow
+you to adjust the position of your game character.
+
+Each state is worth two marks:
+
+//standing front facing = 2
+//jumping facing forwards = 2
+//walking left = 2
+//walking right = 2
+//jumping left and jumping right = 2
 
 0 marks = not a reasonable attempt
-1 mark = attempted but it's messy or lacks detail
-2 marks = you've used several shape functions to create the scenery
+1 mark = attempted but it lacks detail and you didn't use gameChar_x and gameChar_y correctly
+2 marks = you've used a selction of shape functions and made consistent use of gameChar_x and gameChar_y
 
-I've given titles and chosen some base colours, but feel free to
-imaginatively modify these and interpret the scenery titles loosely to
-match your game theme.
-
-
-WARNING: Do not get too carried away. If you're shape takes more than 5 lines
+WARNING: Do not get too carried away. If you're character takes more than 5 lines
 of code to draw then you've probably over done it.
 
+** Only submit your sketch.js **
 
 */
 
-function setup() {
-	createCanvas(1024, 576);
+var gameChar_x = 0;
+var gameChar_y = 0;
+
+function setup()
+{
+	createCanvas(400, 600);
+    angleMode(DEGREES);
 }
 
-function draw() {
-	background(100, 155, 255); //fill the sky blue
+function draw()
+{
+	background(255);
 
+	//Standing, facing frontwards
+
+	stroke(100);
+	noFill();
+	rect(20, 60, 50, 80);
 	noStroke();
-	fill(0,155,0);
-	rect(0, 432, 1024, 144); //draw some green ground
+	fill(0);
+	text("1. standing front facing", 20, 160);
 
-	//1. a cloud in the sky
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("cloud", 200, 100);
-
-	//2. a mountain in the distance
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("mountain", 670, 70);
-
-	//3. a tree
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("tree", 800, 346);
-
-	//4. a canyon
-	//NB. the canyon should go from ground-level to the bottom of the screen
-
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("canyon", 180, 460);
-
-	//5. a collectable token - eg. a jewel, fruit, coins
-	//... add your code here
-
-	noStroke();
-	fill(255);
-	text("collectable item", 400, 400);
-
-
-	// Cloud Shape being modeled
-    beginShape();
-     fill(250);
-     ellipse(250, 150, 140, 90);
-     ellipse(160, 175, 100, 100);
-     ellipse(340, 145, 120, 110);
-     ellipse(370, 210, 105, 90);
-     ellipse(250, 220, 200, 100);
-	endShape();
+	gameChar_x = 245;
+	gameChar_y = 137;
+	//Add your code here ...
+    push();
+    rect(42, 77, 9, 40);
     
-    fill(139,69,19);
-    rect(780, 450, 100, 155);
-    beginShape();
-    translate(769, 350);
-    fill(0,128,0);
-    triangle(10, 100, 58, 10, 112, 100);
-    endShape();
-    
-    // Cloud Shape ends here
-    
-    
-    // Mountain Shape Starts here
-
-    fill(66,65,73);
-    translate(100, -230);
-    triangle(0, -120, 158, 185, -100, 185);
-    
-
-    fill(62,69,73);
-    translate(-150, 10);
-    triangle(20, -100, 158, 175, -100, 175);
-    
-    fill(64,65,73);
-    translate(-180, 0);
-    triangle(80, -100, 158, 175, -100, 175);
-    
+    translate(gameChar_x -= 253,gameChar_y -= 118);
+    ellipse(55, 49, 20, 20);
 
     
-
-// Mountain Shape Ends Here
+    translate(gameChar_x += 27,gameChar_y -= 20);
+    rotate(10);
+    rect(42, 80, 5, 30);
     
+    translate(gameChar_x -= 45,gameChar_y += 30);
+    rotate(-25);
+    rect(50, 80, 5, 30);
     
+    translate(gameChar_x += 108,gameChar_y -= 23);
+    rotate(105);
+    rect(60, 0, 5, 30);
     
-// Canon Shape Start Here
-    beginShape();
+    pop();
     
-    fill(0,0,0);
-    rect(-400, 345, 120, 50);
-    
-    
-    fill(50,0,0);
-    ellipse(-380, 390, 55, 55);
-    
-    
-    endShape();
-// Canon Shape Ends Here
-    
-
-// Collectable Item being modelled
-    translate(-130,300);
-    fill(255,230,99);
-    rect(30, 20, 55, 55, 20);
-    fill(50,0,0);
-    rect(40, 31, 35, 35, 15);
-
    
+
+
+
+	//Jumping facing forwards
+	stroke(100);
+	noFill();
+	rect(220, 60, 50, 80);
+	noStroke();
+	fill(0);
+	text("2. jumping facing forwards", 220, 160);
+
+	gameChar_x = 245;
+	gameChar_y = 137;
+	//Add your code here ...
     
-// Collectable item Ends Here
+    push();
+    rotate(2);
+    translate(gameChar_x -= 230,gameChar_y -= 160);
+    rect(243, 77, 6, 40);
+    ellipse(248, 68, 20, 20);
+    rotate(90);
+    rect(90, -267, 6, 40);
+    rotate(25);
+    rect(-2, -301, 5, 30);
+    rotate(90);
+    rect(-270, -30, 5, 30);
+    pop();
+
+	//Walking, turned left
+	stroke(100);
+	noFill();
+	rect(20, 260, 50, 80);
+	noStroke();
+	fill(0);
+	text("3. Walking left", 20, 360);
+
+	gameChar_x = 45;
+	gameChar_y = 337;
+	//Add your code here ...
+    
+    push();
+    rotate(3);
+    translate(gameChar_x -= 230,gameChar_y -= 140);
+
+    rect(243, 77, 6, 40);
+    ellipse(248, 68, 20, 20);
+    
+    rotate(90);
+    rect(90, -267, 6, 40);
+    rotate(-35);
+    rect(230, -135, 5, 30);
+    rotate(-75);
+    rect(190, 190, 4, 30);
+    pop();
+    
+
+
+	//Walking, turned right
+	stroke(100);
+	noFill();
+	rect(220, 260, 50, 80);
+	noStroke();
+	fill(0);
+	text("4. Walking right", 220, 360);
+
+	gameChar_x = 235;
+	gameChar_y = 337;
+	//Add your code here ...
+    
+    push();
+    translate(gameChar_x -= 230,gameChar_y -= 140);
+
+
+    rect(243, 77, 6, 40);
+    ellipse(248, 68, 20, 20);
+    
+    rotate(90);
+    rect(90, -267, 6, 40);
+    rotate(-35);
+    rect(2650, -135, 5, 30);
+    rotate(-30);
+    rect(268, 2, 4, 30);
+    rotate(90);
+    rect(-1, -303, 4, 30);
+    pop();
+
+
+
+	//Jumping right
+	stroke(100);
+	noFill();
+	rect(20, 460, 50, 80);
+	noStroke();
+	fill(0);
+	text("5. Jumping to the right", 20, 560);
+
+	gameChar_x = 45;
+	gameChar_y = 537;
+	//Add your code here ...
+    push();
+    translate(gameChar_x -= 230,gameChar_y -= 160);
+
+
+    rect(243, 77, 6, 40);
+    ellipse(248, 68, 20, 20);
+    
+    rotate(90);
+    rect(90, -267, 6, 40);
+    rotate(-35);
+    rect(2650, -135, 5, 30);
+    rotate(-30);
+    rect(268, 2, 4, 30);
+    rotate(90);
+    rect(-1, -303, 4, 30);
+    pop();
+
+	//Jumping to the left
+
+	stroke(100);
+	noFill();
+	rect(220, 460, 50, 80);
+	noStroke();
+	fill(0);
+	text("6. Jumping to the left", 220, 560);
+
+	gameChar_x = 245;
+	gameChar_y = 537;
+	//Add your code here ...
+    
+    
+    push();
+    rotate(3);
+    translate(gameChar_x -= 230,gameChar_y -= 160);
+
+    rect(243, 77, 6, 40);
+    ellipse(248, 68, 20, 20);
+    
+    rotate(90);
+    rect(90, -267, 6, 40);
+    rotate(-35);
+    rect(230, -135, 5, 30);
+    rotate(-75);
+    rect(190, 190, 4, 30);
+    pop();
 
 }
-
-
-
